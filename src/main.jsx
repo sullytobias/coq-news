@@ -1,8 +1,8 @@
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { Reddit } from "./routes/reddit.jsx";
-import { X } from "./routes/x.jsx";
+import { Reddit } from "./routes/reddit/reddit.jsx";
+import { X } from "./routes/x/x.jsx";
 
 import App from "./App.jsx";
 

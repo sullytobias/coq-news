@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 
+import classNames from "classnames";
+
 import { useNavigate } from "react-router-dom";
 
 import "./Toggle.scss";
 
 export function Toggle() {
     const navigate = useNavigate();
-    const [toggleValue, setToggleValue] = useState("x");
+    const [toggleValue, setToggleValue] = useState("reddit");
 
     function onChange({ currentTarget }) {
         setToggleValue(currentTarget?.value);
@@ -17,26 +19,32 @@ export function Toggle() {
     }, [toggleValue, navigate]);
 
     return (
-        <div className="container">
-            <div className="switches-container">
-                <input
-                    type="radio"
-                    id="x"
-                    name="switchPlan"
-                    value="x"
-                    onChange={onChange}
-                />
+        <div
+            className={classNames("Toggle", {
+                isX: toggleValue === "x",
+            })}
+        >
+            <div className="Toggle__container">
                 <input
                     type="radio"
                     id="reddit"
-                    name="switchPlan"
                     value="reddit"
+                    name="toggle"
                     onChange={onChange}
                 />
-                <label htmlFor="x">X</label>
+                <input
+                    name="toggle"
+                    type="radio"
+                    id="x"
+                    value="x"
+                    onChange={onChange}
+                />
+
                 <label htmlFor="reddit">Reddit</label>
-                <div className="switch-wrapper">
-                    <div className="switch">
+                <label htmlFor="x">X</label>
+
+                <div className="Toggle__wrapper">
+                    <div className="Toggle__switch">
                         <div>{toggleValue}</div>
                     </div>
                 </div>
