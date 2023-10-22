@@ -1,3 +1,4 @@
+import { Card } from "../../components/Card/Card";
 import { Tabs } from "./Tabs/Tabs";
 import "./reddit.scss";
 
@@ -13,6 +14,7 @@ export function Reddit() {
     return (
         <div className="Reddit">
             <Tabs menu={TMP_MENU} />
+            <Card />
         </div>
     );
 }

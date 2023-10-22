@@ -1,0 +1,35 @@
+.Card {
+    display: flex;
+    background-color: #343536;
+    border-radius: 4px;
+    margin: 50px 0;
+    max-width: 720px;
+}
+
+.Card__rightPanel {
+    padding: 8px;
+
+}
+
+.Card__upvotes {
+    display: flex;
+    align-items: center;
+    background-color: #1a1a1b;
+    padding: 8px;
+}
+
+.Card__posted {
+
+}
+
+.Card__title {
+
+}
+
+.Card__content {
+
+}
+
+.Card__comments {
+
+}
