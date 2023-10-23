@@ -1,25 +1,33 @@
 .Card {
     display: flex;
-    background-color: #343536;
+    background-color: #0A2120;
     border-radius: 4px;
     margin: 50px 0;
-    max-width: 720px;
+    max-width: 680px;
+    border: 1px solid #77bfcf;
+    transition: border-color .2s linear;
+
+    &:hover {
+        border-color: white;
+    }
 }
 
 .Card__rightPanel {
-    padding: 8px;
-
+    padding: 16px 8px;
 }
 
 .Card__upvotes {
     display: flex;
     align-items: center;
-    background-color: #1a1a1b;
+    background-color: #051615;
     padding: 8px;
+    border-radius: 4px;
 }
 
 .Card__posted {
-
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
 }
 
 .Card__title {
@@ -27,9 +35,18 @@
 }
 
 .Card__content {
+    margin-bottom: 32px;
+}
 
+.Card__image {
+    max-height: 512px;
+    object-fit: cover;
 }
 
 .Card__comments {
-
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
 }

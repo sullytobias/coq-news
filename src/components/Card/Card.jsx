@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
+
 import "./Card.scss";
 
-export function Card() {
+export function Card({ imgUrl }) {
     return (
-        <div className="Card">
+        <Link className="Card">
             <div className="Card__upvotes">12</div>
             <div className="Card__rightPanel">
                 <div className="Card__posted">
@@ -13,13 +15,14 @@ export function Card() {
                     all” achievement?
                 </h3>
                 <div className="Card__content">
-                    Ive been wandering around the salt marshes near Joppa for a
-                    while now and have yet to find the flattened remains; I get
-                    its supposed to be random and all, but so is a lot of things
-                    in this game.
+                    {imgUrl ? (
+                        <img className="Card__image" src={imgUrl} alt="test" />
+                    ) : (
+                        "How hard is this game to learn (not master)?"
+                    )}
                 </div>
-                <button className="Card__comments">7 Comments</button>
+                <div className="Card__comments">7 Comments</div>
             </div>
-        </div>
+        </Link>
     );
 }

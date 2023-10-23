@@ -14,7 +14,7 @@ export function Reddit() {
     return (
         <div className="Reddit">
             <Tabs menu={TMP_MENU} />
-            <Card />
+            <Card imgUrl={"https://i.redd.it/pw9gwwxtesvb1.jpg"} />
         </div>
     );
 }
