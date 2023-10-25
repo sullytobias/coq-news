@@ -2,26 +2,34 @@ import { Link } from "react-router-dom";
 
 import "./Card.scss";
 
-export function Card({ imgUrl }) {
+export function Card({
+    imgUrl,
+    title,
+    textContent,
+    numberOfComments,
+    score,
+    author,
+    created,
+}) {
     return (
         <Link className="Card">
-            <div className="Card__upvotes">12</div>
+            <div className="Card__upvotes">{score}</div>
             <div className="Card__rightPanel">
                 <div className="Card__posted">
-                    Posted by u/AlaskanDude1985 15 hours ago
+                    Posted by u/{author} -{" "}
+                    <span className="Card__created">{created}</span>
                 </div>
-                <h3 className="Card__title">
-                    So how does one get the “What with the disembowelment and
-                    all” achievement?
-                </h3>
+                <h3 className="Card__title">{title}</h3>
                 <div className="Card__content">
-                    {imgUrl ? (
+                    {imgUrl !== "self" ? (
                         <img className="Card__image" src={imgUrl} alt="test" />
                     ) : (
-                        "How hard is this game to learn (not master)?"
+                        textContent
                     )}
                 </div>
-                <div className="Card__comments">7 Comments</div>
+                <div className="Card__comments">
+                    {numberOfComments} Comments
+                </div>
             </div>
         </Link>
     );

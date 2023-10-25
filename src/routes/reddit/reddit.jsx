@@ -1,5 +1,10 @@
+import { useState, useEffect } from "react";
+
+import { fetchSubredditPosts } from "../../api/reddit/posts";
+
 import { Card } from "../../components/Card/Card";
 import { Tabs } from "./Tabs/Tabs";
+
 import "./reddit.scss";
 
 const TMP_MENU = [
@@ -11,10 +16,26 @@ const TMP_MENU = [
 ];
 
 export function Reddit() {
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        fetchSubredditPosts().then((posts) => setPosts(posts));
+    }, []);
+
     return (
         <div className="Reddit">
             <Tabs menu={TMP_MENU} />
-            <Card imgUrl={"https://i.redd.it/pw9gwwxtesvb1.jpg"} />
+            {posts.map((post, index) => (
+                <Card
+                    key={index}
+                    score={post?.score}
+                    title={post?.title}
+                    author={post?.author}
+                    textContent={post.selftext}
+                    imgUrl={post?.thumbnail}
+                    created={post?.created}
+                />
+            ))}
         </div>
     );
 }

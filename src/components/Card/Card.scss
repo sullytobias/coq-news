@@ -3,7 +3,8 @@
     background-color: #0A2120;
     border-radius: 4px;
     margin: 50px 0;
-    max-width: 680px;
+    max-width: 720px;
+    width: 100%;
     border: 1px solid #77bfcf;
     transition: border-color .2s linear;
 
@@ -14,6 +15,7 @@
 
 .Card__rightPanel {
     padding: 16px 8px;
+    width: 100%;
 }
 
 .Card__upvotes {
@@ -36,6 +38,10 @@
 
 .Card__content {
     margin-bottom: 32px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    overflow: hidden;
 }
 
 .Card__image {
@@ -49,4 +55,8 @@
     border: none;
     padding: 5px 10px;
     cursor: pointer;
+}
+
+.Card__created {
+    font-weight: bold;
 }
