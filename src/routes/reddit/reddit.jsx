@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { fetchSubredditPosts } from "../../api/reddit/posts";
+import { main } from "../../api/reddit/posts";
 
 import { Card } from "../../components/Card/Card";
 import { Tabs } from "./Tabs/Tabs";
@@ -19,7 +19,7 @@ export function Reddit() {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetchSubredditPosts().then((posts) => setPosts(posts));
+        main().then((posts) => setPosts(posts));
     }, []);
 
     return (
@@ -34,6 +34,7 @@ export function Reddit() {
                     textContent={post.selftext}
                     imgUrl={post?.thumbnail}
                     created={post?.created}
+                    numberOfComments={post?.numberOfComments}
                 />
             ))}
         </div>
