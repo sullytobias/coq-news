@@ -2,6 +2,7 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { Reddit } from "./routes/reddit/reddit.jsx";
+import { PostComments } from "./routes/reddit/postComments/postComments.jsx";
 import { X } from "./routes/x/x.jsx";
 
 import App from "./App.jsx";
@@ -18,6 +19,14 @@ const router = createBrowserRouter([
         element: (
             <App>
                 <Reddit />
+            </App>
+        ),
+    },
+    {
+        path: "/reddit/:postId",
+        element: (
+            <App noToggle>
+                <PostComments />
             </App>
         ),
     },

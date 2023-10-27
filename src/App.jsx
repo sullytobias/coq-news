@@ -3,10 +3,10 @@ import { Banner } from "./components/Banner/Banner";
 
 import "./App.scss";
 
-export default function App({ children }) {
+export default function App({ children, noToggle }) {
     return (
         <div className="App">
-            <Toggle />
+            {!noToggle && <Toggle />}
             <Banner />
             {children}
         </div>

@@ -10,9 +10,15 @@ export function Card({
     score,
     author,
     created,
+    id,
+    commentsData,
 }) {
     return (
-        <Link className="Card">
+        <Link
+            className="Card"
+            state={{ commentsData, title, textContent }}
+            to={`/reddit/${id}`}
+        >
             <div className="Card__upvotes">{score}</div>
             <div className="Card__rightPanel">
                 <div className="Card__posted">

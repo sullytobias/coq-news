@@ -1,0 +1,27 @@
+.PostComments {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 36px;
+}
+
+.PostComments__header {
+    margin-bottom: 72px;
+
+    h3 {
+        color: #6EC741;
+    }
+}
+
+.PostComments__comments {
+    margin-bottom: 36px;
+
+    li {
+        margin-bottom: 36px; 
+        padding: 8px 16px;
+        border: 2px solid #6EC741;
+    }
+
+    :nth-child(2n) {
+        border-color: #77bfcf;
+    } 
+}

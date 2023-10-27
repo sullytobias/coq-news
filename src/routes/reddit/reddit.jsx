@@ -28,6 +28,7 @@ export function Reddit() {
             {posts.map((post, index) => (
                 <Card
                     key={index}
+                    id={post?.id}
                     score={post?.score}
                     title={post?.title}
                     author={post?.author}
@@ -35,6 +36,7 @@ export function Reddit() {
                     imgUrl={post?.thumbnail}
                     created={post?.created}
                     numberOfComments={post?.numberOfComments}
+                    commentsData={post?.commentsData}
                 />
             ))}
         </div>

@@ -1,6 +1,8 @@
 .Toggle {
     padding: 1rem;
     margin: auto;
+    position: absolute;
+    width: 100%;
 
     &.isX {
         .Toggle__container {

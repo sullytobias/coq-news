@@ -42,6 +42,7 @@ async function fetchSubredditPosts(accessToken) {
             );
 
             return {
+                id: idPost,
                 title: post.data.title,
                 selftext: post.data.selftext,
                 author: post.data.author,
