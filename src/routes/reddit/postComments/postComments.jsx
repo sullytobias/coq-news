@@ -5,25 +5,50 @@ import "./postComments.scss";
 
 export function PostComments() {
     const { state } = useLocation();
-    const { commentsData, title, textContent } = state;
+    const { commentsData, title, textContent, imgUrl } = state;
 
     return (
         <div className="PostComments">
-            <Link to="/reddit">Back</Link>
+            <Link className="PostComments__back" to="/reddit">
+                Back
+            </Link>
             <div className="PostComments__header">
                 <h3>{title}</h3>
-                <div>{textContent}</div>
+                {imgUrl !== "self" ? (
+                    <img
+                        className="PostComments__image"
+                        src={imgUrl}
+                        alt="test"
+                    />
+                ) : (
+                    <div className="PostComments__textContent">
+                        {textContent}
+                    </div>
+                )}
             </div>
             <ul className="PostComments__comments">
                 {commentsData?.map((comment, index) => {
-                    const formattedComment = comment.replace(
+                    const formattedComment = comment?.body?.replace(
                         /\s*\S*="[^"]+"\s*/gm,
                         ""
                     );
 
+                    const replies = comment.replies?.children;
+
                     return (
                         <li key={index}>
-                            <Markup content={formattedComment} />
+                            <Markup
+                                className="PostComments__mainComment"
+                                content={formattedComment}
+                            />
+                            {replies?.map((reply, index) => (
+                                <span
+                                    className="PostComments__replies"
+                                    key={index}
+                                >
+                                    - {reply?.data?.body}
+                                </span>
+                            ))}
                         </li>
                     );
                 })}

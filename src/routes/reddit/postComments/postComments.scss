@@ -6,16 +6,28 @@
 
 .PostComments__header {
     margin-bottom: 72px;
+    flex-basis: 100%;
 
     h3 {
         color: #6EC741;
     }
 }
 
+.PostComments__textContent {
+    line-height: 24px;
+}
+
+.PostComments__back {
+    flex-basis: 100%;
+}
+
 .PostComments__comments {
     margin-bottom: 36px;
+    flex-basis: 100%;
 
     li {
+        display: flex;
+        flex-wrap: wrap;
         margin-bottom: 36px; 
         padding: 8px 16px;
         border: 2px solid #6EC741;
@@ -24,4 +36,16 @@
     :nth-child(2n) {
         border-color: #77bfcf;
     } 
+}
+
+.PostComments__mainComment {
+    flex-basis: 100%;
+}
+
+.PostComments__replies {
+    margin: 24px 0 0 12px;
+}
+
+.PostComments__image {
+    max-width: 720px;
 }

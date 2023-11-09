@@ -20,7 +20,10 @@ export async function mainFetchComments(accessToken, subreddit, postId) {
             postId
         );
 
-        return comments?.map((comment) => comment.data.body);
+        return comments?.map((comment) => ({
+            body: comment.data.body,
+            replies: comment.data.replies.data,
+        }));
     } catch (error) {
         console.error("Error:", error);
     }

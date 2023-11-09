@@ -16,6 +16,8 @@
 .Card__rightPanel {
     padding: 16px 8px;
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .Card__upvotes {
@@ -30,10 +32,11 @@
     font-size: 12px;
     font-weight: 400;
     line-height: 16px;
+    flex-basis: 100%;
 }
 
 .Card__title {
-
+    flex-basis: 100%;
 }
 
 .Card__content {
@@ -42,6 +45,9 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 6;
     overflow: hidden;
+    flex-basis: 100%;
+    justify-content: center;
+    display: flex;
 }
 
 .Card__image {
@@ -55,6 +61,7 @@
     border: none;
     padding: 5px 10px;
     cursor: pointer;
+    margin-top: auto;
 }
 
 .Card__created {

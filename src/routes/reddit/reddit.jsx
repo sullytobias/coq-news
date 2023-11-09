@@ -25,20 +25,22 @@ export function Reddit() {
     return (
         <div className="Reddit">
             <Tabs menu={TMP_MENU} />
-            {posts.map((post, index) => (
-                <Card
-                    key={index}
-                    id={post?.id}
-                    score={post?.score}
-                    title={post?.title}
-                    author={post?.author}
-                    textContent={post.selftext}
-                    imgUrl={post?.thumbnail}
-                    created={post?.created}
-                    numberOfComments={post?.numberOfComments}
-                    commentsData={post?.commentsData}
-                />
-            ))}
+            <div className="Reddit__posts">
+                {posts?.map((post, index) => (
+                    <Card
+                        key={index}
+                        id={post?.id}
+                        score={post?.score}
+                        title={post?.title}
+                        author={post?.author}
+                        textContent={post.selftext}
+                        imgUrl={post?.thumbnail}
+                        created={post?.created}
+                        numberOfComments={post?.numberOfComments}
+                        commentsData={post?.commentsData}
+                    />
+                ))}
+            </div>
         </div>
     );
 }

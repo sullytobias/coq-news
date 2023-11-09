@@ -54,7 +54,7 @@ async function fetchSubredditPosts(accessToken) {
                     month: "2-digit",
                     day: "2-digit",
                 }).format(Date.now(post.data.created)),
-                numberOfComments: comments.length,
+                numberOfComments: comments?.length,
                 commentsData: comments,
             };
         })

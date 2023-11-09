@@ -16,7 +16,7 @@ export function Card({
     return (
         <Link
             className="Card"
-            state={{ commentsData, title, textContent }}
+            state={{ commentsData, title, textContent, imgUrl }}
             to={`/reddit/${id}`}
         >
             <div className="Card__upvotes">{score}</div>
