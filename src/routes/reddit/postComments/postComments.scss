@@ -8,13 +8,24 @@
     margin-bottom: 72px;
     flex-basis: 100%;
 
-    h3 {
+    h2 {
         color: #6EC741;
     }
 }
 
 .PostComments__textContent {
     line-height: 24px;
+}
+
+.PostComments__showReplies {
+   margin-bottom: 50px;
+   border: 2px solid white;
+   padding: 5px 10px;
+}
+
+.PostComments__repliesShow {
+  margin-top: 12px;
+  font-weight: bold;
 }
 
 .PostComments__back {
@@ -40,10 +51,15 @@
 
 .PostComments__mainComment {
     flex-basis: 100%;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .PostComments__replies {
     margin: 24px 0 0 12px;
+    border-left: 4px solid;
+    padding-left: 20px;
+    flex-basis: 100%;
 }
 
 .PostComments__image {

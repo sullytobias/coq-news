@@ -21,7 +21,7 @@ async function getAccessToken() {
 
 // Function to fetch posts from the specified subreddit
 async function fetchSubredditPosts(accessToken) {
-    const apiUrl = `https://oauth.reddit.com/r/${subreddit}/top?limit=10`;
+    const apiUrl = `https://oauth.reddit.com/r/${subreddit}/hot?limit=10`;
 
     const response = await fetch(apiUrl, {
         headers: {

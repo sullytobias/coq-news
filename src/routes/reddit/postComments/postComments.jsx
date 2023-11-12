@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Markup } from "interweave";
 
@@ -7,13 +8,19 @@ export function PostComments() {
     const { state } = useLocation();
     const { commentsData, title, textContent, imgUrl } = state;
 
+    const [showReplies, setShowReplies] = useState(false);
+
+    function handleReplies() {
+        setShowReplies((prev) => !prev);
+    }
+
     return (
         <div className="PostComments">
             <Link className="PostComments__back" to="/reddit">
                 Back
             </Link>
             <div className="PostComments__header">
-                <h3>{title}</h3>
+                <h2>{title}</h2>
                 {imgUrl !== "self" ? (
                     <img
                         className="PostComments__image"
@@ -26,6 +33,14 @@ export function PostComments() {
                     </div>
                 )}
             </div>
+            {!showReplies && (
+                <div
+                    className="PostComments__showReplies"
+                    onClick={handleReplies}
+                >
+                    Show Replies
+                </div>
+            )}
             <ul className="PostComments__comments">
                 {commentsData?.map((comment, index) => {
                     const formattedComment = comment?.body?.replace(
@@ -41,14 +56,20 @@ export function PostComments() {
                                 className="PostComments__mainComment"
                                 content={formattedComment}
                             />
-                            {replies?.map((reply, index) => (
-                                <span
-                                    className="PostComments__replies"
-                                    key={index}
-                                >
-                                    - {reply?.data?.body}
-                                </span>
-                            ))}
+                            {!showReplies && replies?.length && (
+                                <div className="PostComments__repliesShow">
+                                    Replies...
+                                </div>
+                            )}
+                            {showReplies &&
+                                replies?.map((reply, index) => (
+                                    <span
+                                        className="PostComments__replies"
+                                        key={index}
+                                    >
+                                        {reply?.data?.body}
+                                    </span>
+                                ))}
                         </li>
                     );
                 })}

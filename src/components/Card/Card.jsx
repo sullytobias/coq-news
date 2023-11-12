@@ -30,7 +30,7 @@ export function Card({
                     {imgUrl !== "self" ? (
                         <img className="Card__image" src={imgUrl} alt="test" />
                     ) : (
-                        textContent
+                        <div className="Card__text">{textContent}</div>
                     )}
                 </div>
                 <div className="Card__comments">

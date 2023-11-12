@@ -47,7 +47,20 @@
     overflow: hidden;
     flex-basis: 100%;
     justify-content: center;
-    display: flex;
+
+    .Card__text {
+        position: relative;
+
+        &::after {
+            content: '';
+            width: 100%;
+            height: 100%;    
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background: linear-gradient(transparent 75px, #77bfcf);
+        }
+    }
 }
 
 .Card__image {
