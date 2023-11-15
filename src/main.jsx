@@ -3,7 +3,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { Reddit } from "./routes/reddit/reddit.jsx";
 import { PostComments } from "./routes/reddit/postComments/postComments.jsx";
-import { X } from "./routes/x/x.jsx";
 
 import App from "./App.jsx";
 
@@ -25,16 +24,8 @@ const router = createBrowserRouter([
     {
         path: "/reddit/:postId",
         element: (
-            <App noToggle>
-                <PostComments />
-            </App>
-        ),
-    },
-    {
-        path: "x",
-        element: (
             <App>
-                <X />
+                <PostComments />
             </App>
         ),
     },

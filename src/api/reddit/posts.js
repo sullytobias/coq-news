@@ -20,8 +20,10 @@ async function getAccessToken() {
 }
 
 // Function to fetch posts from the specified subreddit
-async function fetchSubredditPosts(accessToken) {
-    const apiUrl = `https://oauth.reddit.com/r/${subreddit}/hot?limit=10`;
+async function fetchSubredditPosts(accessToken, filter, periodFilter) {
+    const apiUrl = `https://oauth.reddit.com/r/${subreddit}/${filter}?limit=10${
+        filter === "top" && `&t=${periodFilter}`
+    }`;
 
     const response = await fetch(apiUrl, {
         headers: {
@@ -63,10 +65,14 @@ async function fetchSubredditPosts(accessToken) {
     return postData;
 }
 
-export async function main() {
+export async function main(filter, periodFilter) {
     try {
         const accessToken = await getAccessToken();
-        const posts = await fetchSubredditPosts(accessToken);
+        const posts = await fetchSubredditPosts(
+            accessToken,
+            filter,
+            periodFilter
+        );
 
         return posts;
     } catch (error) {

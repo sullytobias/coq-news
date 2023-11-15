@@ -4,6 +4,7 @@ import { main } from "../../api/reddit/posts";
 
 import { Card } from "../../components/Card/Card";
 import { Tabs } from "./Tabs/Tabs";
+import { Filters } from "../../components/Filters/Filters";
 
 import "./reddit.scss";
 
@@ -17,14 +18,22 @@ const TMP_MENU = [
 
 export function Reddit() {
     const [posts, setPosts] = useState([]);
+    const [filter, setFilter] = useState("hot");
+    const [periodFilter, setPeriodFilter] = useState("today");
 
     useEffect(() => {
-        main().then((posts) => setPosts(posts));
-    }, []);
+        main(filter, periodFilter).then((posts) => setPosts(posts));
+    }, [filter, periodFilter]);
 
     return (
         <div className="Reddit">
             <Tabs menu={TMP_MENU} />
+            <Filters
+                handleFilter={(filter) => setFilter(filter)}
+                handlePeriodFilter={(periodFilter) =>
+                    setPeriodFilter(periodFilter)
+                }
+            />
             <div className="Reddit__posts">
                 {posts?.map((post, index) => (
                     <Card
