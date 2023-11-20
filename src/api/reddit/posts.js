@@ -49,6 +49,7 @@ async function fetchSubredditPosts(accessToken, filter, periodFilter) {
                 selftext: post.data.selftext,
                 author: post.data.author,
                 score: post.data.score || post.data.ups,
+                domain: post.data.domain,
                 thumbnail:
                     post.data.url_overridden_by_dest || post.data.thumbnail,
                 created: new Intl.DateTimeFormat("en-US", {
@@ -63,6 +64,7 @@ async function fetchSubredditPosts(accessToken, filter, periodFilter) {
     );
 
     return postData;
+
 }
 
 export async function main(filter, periodFilter) {

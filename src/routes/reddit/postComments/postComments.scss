@@ -15,6 +15,18 @@
 
 .PostComments__textContent {
     line-height: 24px;
+
+    div {
+        color: #4FBCFF;
+        width: 330px;
+        overflow: hidden;
+        white-space: nowrap; 
+        text-overflow: ellipsis; 
+
+        a {
+            color: #4FBCFF;
+        }
+    }
 }
 
 .PostComments__showReplies {
@@ -26,6 +38,7 @@
 .PostComments__repliesShow {
   margin-top: 12px;
   font-weight: bold;
+  color: #4FBCFF;
 }
 
 .PostComments__back {
@@ -60,6 +73,7 @@
     border-left: 4px solid;
     padding-left: 20px;
     flex-basis: 100%;
+    color: #4FBCFF;
 }
 
 .PostComments__image {

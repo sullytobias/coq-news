@@ -12,11 +12,12 @@ export function Card({
     created,
     id,
     commentsData,
+    domain,
 }) {
     return (
         <Link
             className="Card"
-            state={{ commentsData, title, textContent, imgUrl }}
+            state={{ commentsData, title, textContent, imgUrl, domain }}
             to={`/reddit/${id}`}
         >
             <div className="Card__upvotes">{score}</div>
@@ -27,10 +28,19 @@ export function Card({
                 </div>
                 <h3 className="Card__title">{title}</h3>
                 <div className="Card__content">
-                    {imgUrl !== "self" ? (
+                    {imgUrl !== "self" && domain === "i.redd.it" ? (
                         <img className="Card__image" src={imgUrl} alt="test" />
                     ) : (
-                        <div className="Card__text">{textContent}</div>
+                        <div className="Card__text">
+                            {textContent ||
+                                (imgUrl !== "self" && (
+                                    <div>
+                                        <Link target="_blank" to={imgUrl}>
+                                            {imgUrl}
+                                        </Link>
+                                    </div>
+                                ))}
+                        </div>
                     )}
                 </div>
                 <div className="Card__comments">

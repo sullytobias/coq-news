@@ -4,9 +4,22 @@ import { Markup } from "interweave";
 
 import "./postComments.scss";
 
+function findHighestUps(commentData) {
+    if (!commentData || commentData.length === 0) return null;
+
+    const highestUpsObject = commentData.reduce((prev, current) => {
+        const prevUps = prev.data.ups || 0;
+        const currentUps = current.data.ups || 0;
+
+        return prevUps > currentUps ? prev : current;
+    });
+
+    return highestUpsObject;
+}
+
 export function PostComments() {
     const { state } = useLocation();
-    const { commentsData, title, textContent, imgUrl } = state;
+    const { commentsData, title, textContent, imgUrl, domain } = state;
 
     const [showReplies, setShowReplies] = useState(false);
 
@@ -21,7 +34,7 @@ export function PostComments() {
             </Link>
             <div className="PostComments__header">
                 <h2>{title}</h2>
-                {imgUrl !== "self" ? (
+                {imgUrl !== "self" && domain === "i.redd.it" ? (
                     <img
                         className="PostComments__image"
                         src={imgUrl}
@@ -29,7 +42,13 @@ export function PostComments() {
                     />
                 ) : (
                     <div className="PostComments__textContent">
-                        {textContent}
+                        {textContent || (
+                            <div>
+                                <Link target="_blank" to={imgUrl}>
+                                    {imgUrl}
+                                </Link>
+                            </div>
+                        )}
                     </div>
                 )}
             </div>
@@ -50,6 +69,8 @@ export function PostComments() {
 
                     const replies = comment.replies?.children;
 
+                    const bestReplyFromComment = findHighestUps(replies);
+
                     return (
                         <li key={index}>
                             <Markup
@@ -61,15 +82,14 @@ export function PostComments() {
                                     Replies...
                                 </div>
                             )}
-                            {showReplies &&
-                                replies?.map((reply, index) => (
-                                    <span
-                                        className="PostComments__replies"
-                                        key={index}
-                                    >
-                                        {reply?.data?.body}
-                                    </span>
-                                ))}
+                            {showReplies && (
+                                <span
+                                    className="PostComments__replies"
+                                    key={index}
+                                >
+                                    {bestReplyFromComment?.data?.body}
+                                </span>
+                            )}
                         </li>
                     );
                 })}

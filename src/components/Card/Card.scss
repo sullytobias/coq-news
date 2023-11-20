@@ -51,6 +51,18 @@
     .Card__text {
         position: relative;
 
+        div {
+            color: #4FBCFF;
+            width: 330px;
+            overflow: hidden;
+            white-space: nowrap; 
+            text-overflow: ellipsis; 
+    
+            a {
+                color: #4FBCFF;
+            }
+        }
+
         &::after {
             content: '';
             width: 100%;

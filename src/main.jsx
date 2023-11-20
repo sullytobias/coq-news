@@ -8,6 +8,7 @@ import App from "./App.jsx";
 
 import "./index.scss";
 
+
 const router = createBrowserRouter([
     {
         path: "/",

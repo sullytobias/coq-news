@@ -7,6 +7,7 @@ import { Tabs } from "./Tabs/Tabs";
 import { Filters } from "../../components/Filters/Filters";
 
 import "./reddit.scss";
+import { Loader } from "../../components/Loader/Loader";
 
 const TMP_MENU = [
     { label: "Posts" },
@@ -17,12 +18,17 @@ const TMP_MENU = [
 ];
 
 export function Reddit() {
+    const [isLoading, setIsLoading] = useState(false);
     const [posts, setPosts] = useState([]);
     const [filter, setFilter] = useState("hot");
     const [periodFilter, setPeriodFilter] = useState("today");
 
     useEffect(() => {
-        main(filter, periodFilter).then((posts) => setPosts(posts));
+        setIsLoading(true);
+        main(filter, periodFilter)
+            .then((posts) => setPosts(posts))
+            .finally(() => setIsLoading(false));
+        setIsLoading(false);
     }, [filter, periodFilter]);
 
     return (
@@ -35,6 +41,8 @@ export function Reddit() {
                 }
             />
             <div className="Reddit__posts">
+                {isLoading && <Loader />}
+
                 {posts?.map((post, index) => (
                     <Card
                         key={index}
@@ -47,6 +55,7 @@ export function Reddit() {
                         created={post?.created}
                         numberOfComments={post?.numberOfComments}
                         commentsData={post?.commentsData}
+                        domain={post?.domain}
                     />
                 ))}
             </div>
