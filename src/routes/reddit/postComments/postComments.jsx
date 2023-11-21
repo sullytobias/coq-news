@@ -42,13 +42,14 @@ export function PostComments() {
                     />
                 ) : (
                     <div className="PostComments__textContent">
-                        {textContent || (
-                            <div>
-                                <Link target="_blank" to={imgUrl}>
-                                    {imgUrl}
-                                </Link>
-                            </div>
-                        )}
+                        {textContent ||
+                            (imgUrl !== "self" && (
+                                <div>
+                                    <Link target="_blank" to={imgUrl}>
+                                        {imgUrl}
+                                    </Link>
+                                </div>
+                            ))}
                     </div>
                 )}
             </div>

@@ -1,3 +1,5 @@
+@import '../../../utils/styles/colors.scss';
+
 .PostComments {
     display: flex;
     flex-wrap: wrap;
@@ -9,7 +11,7 @@
     flex-basis: 100%;
 
     h2 {
-        color: #6EC741;
+        color: $green;
     }
 }
 
@@ -17,28 +19,28 @@
     line-height: 24px;
 
     div {
-        color: #4FBCFF;
+        color: $lightBlue;
         width: 330px;
         overflow: hidden;
         white-space: nowrap; 
         text-overflow: ellipsis; 
 
         a {
-            color: #4FBCFF;
+            color: $lightBlue;
         }
     }
 }
 
 .PostComments__showReplies {
    margin-bottom: 50px;
-   border: 2px solid white;
+   border: 2px solid $white;
    padding: 5px 10px;
 }
 
 .PostComments__repliesShow {
   margin-top: 12px;
   font-weight: bold;
-  color: #4FBCFF;
+  color: $lightBlue;
 }
 
 .PostComments__back {
@@ -54,11 +56,11 @@
         flex-wrap: wrap;
         margin-bottom: 36px; 
         padding: 8px 16px;
-        border: 2px solid #6EC741;
+        border: 2px solid $green;
     }
 
     :nth-child(2n) {
-        border-color: #77bfcf;
+        border-color: $lightBlue;
     } 
 }
 
@@ -73,7 +75,7 @@
     border-left: 4px solid;
     padding-left: 20px;
     flex-basis: 100%;
-    color: #4FBCFF;
+    color: $lightBlue;
 }
 
 .PostComments__image {

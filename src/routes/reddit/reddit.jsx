@@ -11,10 +11,22 @@ import { Loader } from "../../components/Loader/Loader";
 
 const TMP_MENU = [
     { label: "Posts" },
-    { label: "Wiki" },
-    { label: "Qud Discord" },
-    { label: "Kitfox Discord" },
-    { label: "Patreon" },
+    {
+        label: "Wiki",
+        link: "https://wiki.cavesofqud.com/wiki/Caves_of_Qud_Wiki",
+    },
+    {
+        label: "Qud Discord",
+        link: "https://discord.com/invite/VXegDkKH4r",
+    },
+    {
+        label: "Kitfox Discord",
+        link: "https://discord.com/invite/kitfoxgames",
+    },
+    {
+        label: "Patreon",
+        link: "https://www.patreon.com/freeholdgames/posts",
+    },
 ];
 
 export function Reddit() {
@@ -28,7 +40,6 @@ export function Reddit() {
         main(filter, periodFilter)
             .then((posts) => setPosts(posts))
             .finally(() => setIsLoading(false));
-        setIsLoading(false);
     }, [filter, periodFilter]);
 
     return (

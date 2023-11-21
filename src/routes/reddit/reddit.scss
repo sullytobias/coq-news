@@ -1,6 +1,9 @@
+@import '../../utils/styles/colors.scss';
+@import '../../utils/styles/breakpoints.scss';
+
 .Reddit {
     width: 100%;
-    background-color: #07100F;
+    background-color: $background;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -12,4 +15,10 @@
     gap: 20px;
     justify-content: center;
     position: relative;
+    width: 100%;
+    padding-inline: 24px;
+
+    @include small {
+        padding-inline: 0;
+    }
 }

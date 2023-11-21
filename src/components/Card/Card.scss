@@ -1,15 +1,17 @@
+@import '../../utils/styles/colors';
+
 .Card {
     display: flex;
-    background-color: #0A2120;
+    background-color: $darkGreen;
     border-radius: 4px;
     margin: 50px 0;
     max-width: 720px;
     width: 100%;
-    border: 1px solid #77bfcf;
+    border: 1px solid $lightBlue;
     transition: border-color .2s linear;
 
     &:hover {
-        border-color: white;
+        border-color: $white;
     }
 }
 
@@ -18,12 +20,13 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    overflow: hidden;
 }
 
 .Card__upvotes {
     display: flex;
     align-items: center;
-    background-color: #051615;
+    background-color: $darkerGreen;
     padding: 8px;
     border-radius: 4px;
 }
@@ -52,14 +55,14 @@
         position: relative;
 
         div {
-            color: #4FBCFF;
+            color: $lightBlue;
             width: 330px;
             overflow: hidden;
             white-space: nowrap; 
             text-overflow: ellipsis; 
     
             a {
-                color: #4FBCFF;
+                color: $lightBlue;
             }
         }
 
@@ -70,7 +73,7 @@
             position: absolute;
             left: 0;
             bottom: 0;
-            background: linear-gradient(transparent 75px, #77bfcf);
+            background: linear-gradient(transparent 75px, $lightBlue);
         }
     }
 }
@@ -82,7 +85,7 @@
 
 .Card__comments {
     background-color: transparent;
-    color: white;
+    color: $white;
     border: none;
     padding: 5px 10px;
     cursor: pointer;

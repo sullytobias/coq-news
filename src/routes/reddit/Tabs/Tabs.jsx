@@ -6,7 +6,7 @@ export function Tabs({ menu }) {
     return (
         <ul className="Tabs">
             {menu?.map((item, index) => (
-                <Link key={index} to={item.link}>
+                <Link target="_blank" key={index} to={item.link}>
                     {item.label}
                 </Link>
             ))}
