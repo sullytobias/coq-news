@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 
@@ -24,6 +26,10 @@ export function PostComments() {
     const { state } = useLocation();
     const { commentsData, title, textContent, imgUrl, domain } = state;
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     const [showReplies, setShowReplies] = useState(false);
 
     function handleReplies() {
@@ -32,7 +38,7 @@ export function PostComments() {
 
     return (
         <div className="PostComments">
-            <Link className="PostComments__back" to="/reddit">
+            <Link className="PostComments__back" to="/">
                 <FontAwesomeIcon icon={faArrowLeftLong} />
                 Back
             </Link>
@@ -57,14 +63,9 @@ export function PostComments() {
                     </div>
                 )}
             </div>
-            {!showReplies && (
-                <div
-                    className="PostComments__showReplies"
-                    onClick={handleReplies}
-                >
-                    {showReplies ? "Show Replies" : "Hide Replies"}
-                </div>
-            )}
+            <div className="PostComments__showReplies" onClick={handleReplies}>
+                {!showReplies ? "Show Replies" : "Hide Replies"}
+            </div>
             <ul className="PostComments__comments">
                 {commentsData?.map((comment, index) => {
                     const formattedComment = comment?.body?.replace(
@@ -87,7 +88,7 @@ export function PostComments() {
                                     Replies...
                                 </div>
                             )}
-                            {showReplies && (
+                            {showReplies && replies?.length && (
                                 <span
                                     className="PostComments__replies"
                                     key={index}

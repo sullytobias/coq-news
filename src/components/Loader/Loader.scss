@@ -11,6 +11,7 @@
     background-color: rgba($color: $black, $alpha: .5);
     z-index: 1;
     padding-top: 100px;
+    min-height: 100vh;
 
     svg {
         height: 70px;

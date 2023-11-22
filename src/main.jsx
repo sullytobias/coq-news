@@ -12,10 +12,6 @@ import "./index.scss";
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <App />,
-    },
-    {
-        path: "reddit",
         element: (
             <App>
                 <Reddit />
@@ -23,7 +19,7 @@ const router = createBrowserRouter([
         ),
     },
     {
-        path: "/reddit/:postId",
+        path: "/:postId",
         element: (
             <App>
                 <PostComments />

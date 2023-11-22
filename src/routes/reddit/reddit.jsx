@@ -5,9 +5,9 @@ import { main } from "../../api/reddit/posts";
 import { Card } from "../../components/Card/Card";
 import { Tabs } from "./Tabs/Tabs";
 import { Filters } from "../../components/Filters/Filters";
+import { Loader } from "../../components/Loader/Loader";
 
 import "./reddit.scss";
-import { Loader } from "../../components/Loader/Loader";
 
 const TMP_MENU = [
     { label: "Posts" },
