@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
+
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Markup } from "interweave";
@@ -30,6 +33,7 @@ export function PostComments() {
     return (
         <div className="PostComments">
             <Link className="PostComments__back" to="/reddit">
+                <FontAwesomeIcon icon={faArrowLeftLong} />
                 Back
             </Link>
             <div className="PostComments__header">
@@ -58,7 +62,7 @@ export function PostComments() {
                     className="PostComments__showReplies"
                     onClick={handleReplies}
                 >
-                    Show Replies
+                    {showReplies ? "Show Replies" : "Hide Replies"}
                 </div>
             )}
             <ul className="PostComments__comments">

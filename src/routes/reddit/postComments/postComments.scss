@@ -33,8 +33,16 @@
 
 .PostComments__showReplies {
    margin-bottom: 50px;
-   border: 2px solid $white;
+   border: 2px solid $lightBlue;
+   font-weight: bold;
    padding: 5px 10px;
+   cursor: pointer;
+
+   transition: all 0.4s;
+
+   &:hover {
+    transform: scale(1.04);
+   }
 }
 
 .PostComments__repliesShow {
@@ -45,6 +53,12 @@
 
 .PostComments__back {
     flex-basis: 100%;
+    display: flex;
+    align-items: center;
+
+    svg {
+        padding-right: 10px;
+    }
 }
 
 .PostComments__comments {

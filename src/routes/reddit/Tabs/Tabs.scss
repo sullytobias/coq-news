@@ -12,9 +12,24 @@
     min-height: 50px;
     background-color: $tabs;
 
-    :first-child, :hover {
-      border-bottom: 1px dashed;
+    a {
+      display: flex;
+
+      svg {
+        padding-left: 10px;
+        
+        path {
+          fill: $lightBlue;
+
+        }
+      }
+
+      &:first-child, &:hover {
+        border-bottom: 1px dashed;
+      }
     }
+
+   
 
     @include small {
         flex-direction: row;
